@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it as below."
+title: "OptimalCover VSC Pricing Dataset"
+abstract: >
+  Independent reference data for Vehicle Service Contract (VSC / extended warranty)
+  pricing, derived from public insurance filings, actuarial reserve disclosures, and
+  documented industry cost structures. Published as canonical price reference ranges
+  by vehicle class, mileage band, term, and deductible.
+authors:
+  - name: "OptimalCover"
+    website: "https://optimalcover.com"
+type: dataset
+version: "3.6.7"
+date-released: "2026-04-18"
+url: "https://github.com/Optimal-Cover/vsc-pricing-data"
+repository-code: "https://github.com/Optimal-Cover/vsc-pricing-data"
+license: "CC-BY-4.0"
+keywords:
+  - vehicle-service-contract
+  - vsc
+  - extended-warranty
+  - automotive
+  - pricing
+  - consumer-finance
+  - insurance
+  - tabular-data
+  - open-data

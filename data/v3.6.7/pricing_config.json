@@ -1,0 +1,84 @@
+[
+  {
+    "config_key": "constraints",
+    "config_value": {
+      "note": "Class D extended terms (48/60) are available only for lower mileage bands per source rate sheet.",
+      "extrapolation_note": "If a requested class/term combination is not present in rates (e.g., Class D at 48/60 months), return 'Not available (exceeds cap)' and do not estimate.",
+      "extrapolation_policy": "DISALLOW",
+      "class_term_caps_months": {
+        "D": {
+          "0 - 48,000": 60,
+          "48,001 - 60,000": 60,
+          "60,001 - 72,000": 36,
+          "72,001 - 84,000": 36
+        }
+      }
+    }
+  },
+  {
+    "config_key": "deductible_handling",
+    "config_value": {
+      "note": "The rates array contains ONLY the canonical $100 deductible prices to avoid duplicate/derived values drifting over time.",
+      "rules": {
+        "0": {
+          "caps": [
+            {
+              "note": "For Class D, cap the $0 deductible surcharge to +$500 over the $100 price to preserve consumer reasonableness and avoid extreme implied break-even claims counts.",
+              "scope": {
+                "vehicle_class": [
+                  "D"
+                ]
+              },
+              "cap_type": "ABSOLUTE_ADDITIVE",
+              "cap_amount": 500
+            }
+          ],
+          "rounding": {
+            "method": "nearest",
+            "increment": 50
+          },
+          "multiplier": 1.35
+        },
+        "250": {
+          "rounding": {
+            "method": "nearest",
+            "increment": 50
+          },
+          "multiplier": 0.85
+        }
+      },
+      "strategy": "compute_other_deductibles_from_100_at_runtime",
+      "supported_deductibles": [
+        0,
+        100,
+        250
+      ],
+      "authoritative_deductible": 100
+    }
+  },
+  {
+    "config_key": "eligibility_constraints",
+    "config_value": {
+      "note": "Vehicles older than max_vehicle_age_years are out of scope for Phase 1 pricing authority; do not attempt to price.",
+      "handling": "NOT_AVAILABLE",
+      "as_of_date": "2026-01-13",
+      "max_vehicle_age_years": 15
+    }
+  },
+  {
+    "config_key": "rounding_policy",
+    "config_value": {
+      "method": "nearest",
+      "increment": 50,
+      "collision_policy": "ALLOWED",
+      "interpretation_rule": "Pricing hierarchy is determined pre-rounding; identical displayed prices are acceptable rounding artifacts.",
+      "runtime_collision_note": "Even though only $100 deductible rates are stored, collisions may still occur after runtime deductible derivation ($0/$250) due to rounding to $50 increments; such collisions are acceptable per collision_policy."
+    }
+  },
+  {
+    "config_key": "schema_version",
+    "config_value": {
+      "value": "3.6.7"
+    }
+  }
+]

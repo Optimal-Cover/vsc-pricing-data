@@ -1,0 +1,26 @@
+[
+  {
+    "label": "0 - 48,000",
+    "min_odometer": 0,
+    "max_odometer": 48000,
+    "max_inclusive": true
+  },
+  {
+    "label": "48,001 - 60,000",
+    "min_odometer": 48001,
+    "max_odometer": 60000,
+    "max_inclusive": true
+  },
+  {
+    "label": "60,001 - 72,000",
+    "min_odometer": 60001,
+    "max_odometer": 72000,
+    "max_inclusive": true
+  },
+  {
+    "label": "72,001 - 84,000",
+    "min_odometer": 72001,
+    "max_odometer": 84000,
+    "max_inclusive": true
+  }
+]
