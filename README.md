@@ -62,6 +62,14 @@ GROUP BY vehicle_class
 ORDER BY avg_price;
 ```
 
+### Jupyter notebooks
+
+Worked examples live in [`examples/`](./examples/):
+
+- [`01_getting_started.ipynb`](./examples/01_getting_started.ipynb) — load every table, form price ranges
+- [`02_pricing_explorer.ipynb`](./examples/02_pricing_explorer.ipynb) — prices by class, term curves, range spread
+- [`03_deductible_comparison.ipynb`](./examples/03_deductible_comparison.ipynb) — derive `$0` and `$250` from the canonical `$100`
+
 ---
 
 ## Schema versioning
