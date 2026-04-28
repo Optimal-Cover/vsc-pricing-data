@@ -1,0 +1,8 @@
+# Lock all dataset files to their committed bytes — no line-ending normalisation.
+# Without this, Windows clones with core.autocrlf=true rewrite LF→CRLF on checkout,
+# which breaks checksums.sha256 and silently corrupts integrity verification.
+data/** -text
+*.parquet binary
+*.csv -text
+*.json -text
+checksums.sha256 -text
